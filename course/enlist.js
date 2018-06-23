@@ -10,7 +10,11 @@ function enlist(user_id, course_id){
         console.log(res)
         /// #endif
 
-        notify("Apprenant inscrit", "success", false)
+        if (res == 0) {
+            notify("Apprenant était déjà inscrit à ce Cours.", "info", false)
+        } else {
+            notify("Apprenant inscrit", "success", false)
+        }
     })
 }
 

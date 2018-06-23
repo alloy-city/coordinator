@@ -29,7 +29,8 @@ function http(method, body, route, callback) {
             callback(0)
         }
         if (response.status == 200) {
-            response.json().then(callback)
+            // response.json().then(callback)
+            callback(response)
         } else {
             response.json().then(err => {
                 console.log(err)
