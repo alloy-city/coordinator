@@ -34,6 +34,7 @@ hangoutsAutofill()
 Teacher.initializeTeachers(Auth.teachers)
 
 export {
+    clone,
     course,
     create,
     Ui,
