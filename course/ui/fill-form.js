@@ -1,4 +1,5 @@
 import drawHangouts from './draw-hangouts'
+import { removeStudent } from '../removeStudent'
 
 let titleElement = document.getElementById("create-group-title")
 let descriptionElement = document.getElementById("coordinator-create-course-description")
@@ -39,9 +40,22 @@ export default course => {
 
     studentsListElement.innerHTML = ""
     for (let i=0; i<course.students.length; i++){
-        studentsListElement.appendChild(htmlToElement(
-            `<li class="list-group-item"><b>${course.students[i].nickname || course.students[i].name || ""}</b> - ${course.students[i].mainEmail}`
-        ))
+        let studentElement = htmlToElement(
+            `<li id="course-editor-enlisted-student-${course.students[i]._id}" class="list-group-item" role="button"><b>${course.students[i].nickname || course.students[i].name || ""}</b> - ${course.students[i].mainEmail}</li>`
+        )
+
+        let removeStudentButton = htmlToElement(`<span class="pull-right glyphicon glyphicon-remove" aria-hidden="true" role="button"></span>`)
+        removeStudentButton.addEventListener("click", e => {
+            e.stopPropagation()
+            removeStudent(course._id, course.students[i]._id)
+        })
+
+        studentElement.addEventListener("click", () => {
+            console.log(`Open student ${course.students[i]._id}'s detail.`)
+        })
+
+        studentElement.appendChild(removeStudentButton)
+        studentsListElement.appendChild(studentElement)
     }
 
     createButtonElement.classList = "hidden"
