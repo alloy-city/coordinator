@@ -52,6 +52,12 @@ export default course => {
 
         studentElement.addEventListener("click", () => {
             console.log(`Open student ${course.students[i]._id}'s detail.`)
+
+            let usersTab = $('a[href="#users"]')
+
+            Teacher.Student.getStudentDetails(course.students[i]._id)
+            usersTab.tab('show')
+            usersTab[0].scrollIntoView({behavior: "smooth"})
         })
 
         studentElement.appendChild(removeStudentButton)
