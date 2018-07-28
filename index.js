@@ -7,7 +7,7 @@ import * as presentation from './presentation/index'
 // import freeUserSlot from './users/free-user-slot'
 import * as Pack from './pack'
 import * as Product from './product'
-import { giveXP } from './users/giveXP'
+import { giveXP, publishTestimony } from './users'
 
 addTabs()
 
@@ -20,5 +20,6 @@ window.Coordinator = {
     // freeUserSlot,
     Pack,
     Product,
-    giveXP
+    giveXP,
+    publishTestimony
 }
