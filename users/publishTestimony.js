@@ -1,5 +1,5 @@
-function publishTestimony(e){
-    console.log(e)
+function publishTestimony(user){
+    console.log(user)
 }
 
 export { publishTestimony }
