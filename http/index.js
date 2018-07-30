@@ -20,7 +20,9 @@ function http(method, body, route, callback) {
     }
 
     fetch(`${apiDomain}/api/${route}`, init).then(response => {
+        /// #if DEBUG
         console.log(response.status)
+        /// #endif
 
         if (response.status == 304) {
             callback(304)
