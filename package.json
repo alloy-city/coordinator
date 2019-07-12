@@ -1,7 +1,11 @@
 {
   "name": "coordinator",
-  "version": "0.10.0",
-  "description": "Exclusive functionalities to Alloy City coordinators.",
+  "version": "1.0.0",
+  "description": "Alloy City functionalities exclusive to coordinators.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alloy-city/coordinator.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,12 +13,10 @@
     "build:prod": "npx webpack --config webpack.prod.config.js"
   },
   "author": "Bernardo SOUSA",
-  "license": "GNU GPLv3",
+  "license": "GPL-3.0-only",
   "devDependencies": {
-    "webpack": "^4.16.3",
-    "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {
-    "ifdef-loader": "^2.0.3"
+    "webpack": "4.35.3",
+    "webpack-cli": "3.3.5",
+    "ifdef-loader": "2.1.1"
   }
 }
