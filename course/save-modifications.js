@@ -13,8 +13,8 @@ export default () => {
     }
 
     db("POST", course, `course/modify`, response => {
-        console.log(response)
-        notify("Parcours dûment modifié.", "success", false)
-        search()
+        console.log(response);
+        notify("Parcours dûment modifié.", "success", false);
+        Coordinator.Course.edit(course._id);
     })
 }
