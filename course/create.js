@@ -15,5 +15,4 @@ export default function (){
             Coordinator.Course.edit(res)
         })
     }
-
 }

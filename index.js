@@ -7,9 +7,11 @@ import * as Course from './course'
 // import freeUserSlot from './users/free-user-slot'
 import * as Pack from './pack'
 import * as Product from './product'
+import { getRelations } from './cslc'
 import { giveXP, publishTestimony } from './users'
 
-addTabs()
+addTabs();
+getRelations();
 
 // build list of themes based on string.material.themes array
 // console.log(string.material.themes);
