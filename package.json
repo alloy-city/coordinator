@@ -1,6 +1,6 @@
 {
   "name": "coordinator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Alloy City functionalities exclusive to coordinators.",
   "repository": {
     "type": "git",
@@ -15,8 +15,8 @@
   "author": "Bernardo SOUSA",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "webpack": "4.35.3",
-    "webpack-cli": "3.3.5",
-    "ifdef-loader": "2.1.1"
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.10",
+    "ifdef-loader": "2.1.4"
   }
 }

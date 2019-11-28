@@ -5,6 +5,7 @@ let price = document.getElementById("coordinator-create-pack-price")
 let level = document.getElementById("coordinator-create-pack-level")
 let theme = document.getElementById("coordinator-create-pack-theme")
 let content = document.getElementById("coordinator-pack-content")
+let packId = document.getElementById("coordinator-pack-form-id");
 
 export default (pack) => {
     content.innerHTML = ""
@@ -15,6 +16,7 @@ export default (pack) => {
     price.value = pack.price
     level.selectedIndex = pack.level
     theme.selectedIndex = pack.theme
+    packId.innerText = pack._id;
 
     for (let i=0; i<pack.chapters.length; i++){
         content.appendChild(htmlToElement(`
@@ -35,5 +37,4 @@ export default (pack) => {
 
         pack.courses[i] = pack.courses[i]._id
     }
-
 }
