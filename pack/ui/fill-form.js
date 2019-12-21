@@ -7,6 +7,15 @@ let theme = document.getElementById("coordinator-create-pack-theme")
 let content = document.getElementById("coordinator-pack-content")
 let packId = document.getElementById("coordinator-pack-form-id");
 
+function updateClipboard(newClip) {
+    navigator.clipboard.writeText(newClip).then(function() {
+        notify("URL copiée sur la zone de transfers.", "success", false);
+    }, function() {
+        console.error("Couldn't copy");
+        notify("URL n'a pas été copiée sur la zone de transfers.", "danger", true);
+    });
+}
+
 export default (pack) => {
     content.innerHTML = ""
 
@@ -17,6 +26,10 @@ export default (pack) => {
     level.selectedIndex = pack.level
     theme.selectedIndex = pack.theme
     packId.innerText = pack._id;
+    packId.onclick = function () {
+        updateClipboard(`https://pantoufle.online/p/${pack._id}`);
+        console.log(pack._id);
+    };
 
     for (let i=0; i<pack.chapters.length; i++){
         content.appendChild(htmlToElement(`
