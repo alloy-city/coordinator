@@ -15,8 +15,6 @@ export default function (_id) {
 
     // get the pack from db
     db("GET", null, `pack/${_id}`, res => {
-        console.log(res)
-
         // setup buttons
         createButton.classList = "hidden"
         clearButton.classList = "btn btn-default"
@@ -62,6 +60,6 @@ export default function (_id) {
         Coordinator.Pack.pack._id = res._id
         
         // update DOM
-        fillForm(Coordinator.Pack.pack)
+        fillForm(Coordinator.Pack.pack, (res.author == Auth.userData._id))
     })
 }

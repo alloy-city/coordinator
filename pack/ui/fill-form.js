@@ -16,7 +16,9 @@ function updateClipboard(newClip) {
     });
 }
 
-export default (pack) => {
+export default (pack, isAuthor) => {
+    console.log(isAuthor)
+
     content.innerHTML = ""
 
     title.value = pack.title
@@ -27,27 +29,56 @@ export default (pack) => {
     theme.selectedIndex = pack.theme
     packId.innerText = pack._id;
     packId.onclick = function () {
-        updateClipboard(`${apiDomain}/p/${pack._id}`);
+        updateClipboard(`${window.location}p/${pack._id}`);
         console.log(pack._id);
     };
-
-    for (let i=0; i<pack.chapters.length; i++){
-        content.appendChild(htmlToElement(`
-            <button name="${pack.chapters[i]._id}" type="button" class="list-group-item list-group-item-warning" onclick="Coordinator.Pack.Chapter.remove('${pack.chapters[i]._id}')">
-                ${pack.chapters[i].title} - ${pack.chapters[i].description}
-            </button>
-        `))
-
-        pack.chapters[i] = pack.chapters[i]._id
-    }
     
-    for (let i=0; i<pack.courses.length; i++){
-        content.appendChild(htmlToElement(`
-            <button name="${pack.courses[i]._id}" type="button" class="list-group-item list-group-item-success" onclick="Coordinator.Pack.Course.remove('${pack.courses[i]._id}')">
-                ${pack.courses[i].title} - ${pack.courses[i].description}
-            </button>
-        `))
+    title.disabled = !isAuthor;
+    description.disabled = !isAuthor;
+    hidden.disabled = !isAuthor;
+    price.disabled = !isAuthor;
+    level.disabled = !isAuthor;
+    theme.disabled = !isAuthor;
 
-        pack.courses[i] = pack.courses[i]._id
+    if (isAuthor) {
+        for (let i=0; i<pack.chapters.length; i++){
+            content.appendChild(htmlToElement(`
+                <button name="${pack.chapters[i]._id}" type="button" class="list-group-item list-group-item-warning" onclick="Coordinator.Pack.Chapter.remove('${pack.chapters[i]._id}')">
+                    ${pack.chapters[i].title} - ${pack.chapters[i].description}
+                </button>
+            `))
+    
+            pack.chapters[i] = pack.chapters[i]._id
+        }
+        
+        for (let i=0; i<pack.courses.length; i++){
+            content.appendChild(htmlToElement(`
+                <button name="${pack.courses[i]._id}" type="button" class="list-group-item list-group-item-success" onclick="Coordinator.Pack.Course.remove('${pack.courses[i]._id}')">
+                    ${pack.courses[i].title} - ${pack.courses[i].description}
+                </button>
+            `))
+    
+            pack.courses[i] = pack.courses[i]._id
+        }
+    } else {
+        for (let i=0; i<pack.chapters.length; i++){
+            content.appendChild(htmlToElement(`
+                <button name="${pack.chapters[i]._id}" type="button" class="list-group-item list-group-item-warning">
+                    ${pack.chapters[i].title} - ${pack.chapters[i].description}
+                </button>
+            `))
+    
+            pack.chapters[i] = pack.chapters[i]._id
+        }
+        
+        for (let i=0; i<pack.courses.length; i++){
+            content.appendChild(htmlToElement(`
+                <button name="${pack.courses[i]._id}" type="button" class="list-group-item list-group-item-success">
+                    ${pack.courses[i].title} - ${pack.courses[i].description}
+                </button>
+            `))
+    
+            pack.courses[i] = pack.courses[i]._id
+        }
     }
 }

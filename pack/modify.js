@@ -22,8 +22,10 @@ export default () => {
     /// #endif
 
     db("POST", Coordinator.Pack.pack, "pack/modify", response => {
-        console.log(response)
-        notify("Pack modifié.", "success", false)
-        Coordinator.Pack.search()
+        if (response === "PACK_MODIFIED") {
+            notify("Pack modifié.", "success", false)
+            Coordinator.Pack.selectPack(Coordinator.Pack.pack._id)
+            Coordinator.Pack.search()
+        }
     })
 }

@@ -11,7 +11,7 @@ let packId = document.getElementById("coordinator-pack-form-id");
 
 export default function() {
     Coordinator.Pack.pack.clear()
-    fillForm(Coordinator.Pack.pack)
+    fillForm(Coordinator.Pack.pack, true)
 
     createButton.classList = "btn btn-default"
     deleteButton.classList = "hidden"
