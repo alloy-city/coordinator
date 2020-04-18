@@ -1,10 +1,10 @@
-let title = document.getElementById("coordinator-create-pack-title")
-let description = document.getElementById("coordinator-create-pack-description")
-let hidden = document.getElementById("coordinator-create-pack-hidden")
-let price = document.getElementById("coordinator-create-pack-price")
-let level = document.getElementById("coordinator-create-pack-level")
-let theme = document.getElementById("coordinator-create-pack-theme")
-let content = document.getElementById("coordinator-pack-content")
+let title = document.getElementById("coordinator-create-pack-title");
+let description = document.getElementById("coordinator-create-pack-description");
+let hidden = document.getElementById("coordinator-create-pack-hidden");
+let price = document.getElementById("coordinator-create-pack-price");
+let level = document.getElementById("coordinator-create-pack-level");
+let theme = document.getElementById("coordinator-create-pack-theme");
+let content = document.getElementById("coordinator-pack-content");
 let packId = document.getElementById("coordinator-pack-form-id");
 
 function updateClipboard(newClip) {
@@ -27,7 +27,7 @@ export default (pack) => {
     theme.selectedIndex = pack.theme
     packId.innerText = pack._id;
     packId.onclick = function () {
-        updateClipboard(`https://pantoufle.online/p/${pack._id}`);
+        updateClipboard(`${apiDomain}/p/${pack._id}`);
         console.log(pack._id);
     };
 
