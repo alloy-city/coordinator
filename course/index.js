@@ -19,7 +19,7 @@ class Course {
         this.title = "",
         this.description = "",
         this.hidden = false,
-        this.price = 209,
+        this.price = 9999.99,
         this.level = 0,
         this.theme = 0,
         this.hangouts = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined],

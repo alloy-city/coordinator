@@ -28,7 +28,7 @@ class Pack {
         this.hidden = false
         this.level = 0
         this.theme = 0
-        this.price = 209
+        this.price = 9999.99
         this.chapters = []
         this.courses = []
     }
@@ -42,7 +42,7 @@ class Pack {
         this.hidden = false
         this.level = 0
         this.theme = 0
-        this.price = 209
+        this.price = 9999.99
         this.chapters = []
         this.courses = []
     }
