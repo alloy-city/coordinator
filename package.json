@@ -15,8 +15,8 @@
   "author": "Bernardo SOUSA",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "webpack": "4.42.1",
-    "webpack-cli": "3.3.11",
+    "webpack": "4.44.1",
+    "webpack-cli": "3.3.12",
     "ifdef-loader": "2.1.5"
   }
 }
